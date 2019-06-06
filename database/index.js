@@ -10,10 +10,6 @@ sequelize.authenticate()
   .then(() => console.log('Connected to the database'))
   .catch(err => console.error('Could not connect to the database', err));
 
-// sequelize.sync({
-//   force: true, // Drops info in database for testing
-// })
-
 //make showtimes model schema
 
 const Show = sequelize.define('show', {
@@ -82,5 +78,7 @@ UsersMovies.belongsTo(Movie); // define join table relationship to Movie
 UsersMovies.belongsTo(TVShows);
 // add join for tvshows with user
 
-
+// sequelize.sync({
+//   force: true, // Drops info in database for testing
+// })
 module.exports = { User, Show, Movie, UsersMovies, Showtimes, Theatres, TVShows };
